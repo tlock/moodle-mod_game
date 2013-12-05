@@ -372,6 +372,9 @@ function game_hiddenpicture_check_mainquestion( $id, $game, &$attempt, &$hiddenp
 	$glossaryentryid = $responses->glossaryentryid;
 	$queryid = $responses->queryid;
 
+    $cmg = get_coursemodule_from_instance('glossary', $game->glossaryid2, $game->course);
+    $context = get_context_instance(CONTEXT_MODULE, $cmg->id);
+
     // Load the glossary entry
     if (!($entry = $DB->get_record( 'glossary_entries', array( 'id' => $glossaryentryid)))) {
         print_error( get_string( 'noglossaryentriesfound', 'game'));

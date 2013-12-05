@@ -132,7 +132,7 @@ if ($nextid) {
 	game_updateattempts_maxgrade( $game, $attempt, 1, 0);
     $sec = '';
     if( !isset( $cm))
-        $cm = get_coursemodule_from_id('game', $game->id);
+        $cm = get_coursemodule_from_instance('game', $game->id);
     if ($section = $DB->get_record('course_sections', array( 'id' => $cm->section))) {
         $sec = $section->section;
     }
@@ -196,7 +196,7 @@ $tocwidth = '10%';
 		if( $nextbutton != ''){
 			echo $nextbutton;
 		}
-        echo format_text($content, FORMAT_HTML, $nocleanoption, $id);
+        echo format_text($content, FORMAT_HTML, $nocleanoption);
 		if( $nextbutton != ''){
 			echo $nextbutton;
 		}
